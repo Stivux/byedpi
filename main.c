@@ -122,6 +122,8 @@ static const char help_text[] = {
     #ifdef __linux__
     "    -Y, --drop-sack           Drop packets with SACK extension\n"
     #endif
+    "    --user <name>             SOCKS5 username for authentication\n"
+    "    --pass <password>         SOCKS5 password for authentication\n"
 };
 
 
@@ -191,6 +193,8 @@ const struct option options[] = {
     {"connect-to",    1, 0, 'C'}, //
     {"comment",       1, 0, '#'}, //
     {"cache-merge",   1, 0, '/'},
+    {"user",          1, 0, '1'}, //
+    {"pass",          1, 0, '2'}, //
     {0}
 };
     
@@ -1254,6 +1258,12 @@ int parse_args(int argc, char **argv)
             params.protect_path = optarg;
             break;
         #endif
+        case '1':
+            params.socks5_user = optarg;
+            break;
+        case '2':
+            params.socks5_pass = optarg;
+            break;
         case 0:
             break;
             

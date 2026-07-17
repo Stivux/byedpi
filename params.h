@@ -160,6 +160,8 @@ struct params {
     int max_open;
     int debug;
     size_t bfsize;
+    const char *socks5_user;
+    const char *socks5_pass;
     union sockaddr_u baddr;
     union sockaddr_u laddr;
     struct mphdr *mempool;
